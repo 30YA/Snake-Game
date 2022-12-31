@@ -24,7 +24,6 @@ h2 {
     position: relative;
     width: 500px;
     height: 500px;
-    background-color: yellow;
     filter: drop-shadow(5px 5px 15px rgb(12, 12, 12));
     animation: 1s linear 1s infinite rgb;
     border-radius: 21px;

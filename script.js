@@ -1,6 +1,4 @@
 // import sia from "./animation.js";
-const board = document.querySelector(".board");
-const context = board.getContext("2d");
 const boxsize = 25;
 const row = 20;
 const col = 20;
@@ -13,14 +11,16 @@ let velocityX = 0;
 let velocityY = 0;
 let snakeBody = [];
 
+const board = document.querySelector(".board");
+const context = board.getContext("2d");
 window.addEventListener("load", () => {
   gameHelp();
   board.width = boxsize * row;
   board.height = boxsize * col;
 
   placeFood();
-  setInterval(update, 100);
   document.addEventListener("keyup", changeDirection);
+  setInterval(update, 1000/10);
 });
 function update() {
   if (gameOver) {
@@ -74,16 +74,13 @@ function changeDirection(e) {
   if (e.key === "ArrowRight" && velocityX !== -1) {
     velocityX = 1;
     velocityY = 0;
-  }
-  if (e.key === "ArrowLeft" && velocityX !== 1) {
+  }else if (e.key === "ArrowLeft" && velocityX !== 1) {
     velocityX = -1;
     velocityY = 0;
-  }
-  if (e.key === "ArrowUp" && velocityY !== 1) {
+  }else if (e.key === "ArrowUp" && velocityY !== 1) {
     velocityX = 0;
     velocityY = -1;
-  }
-  if (e.key === "ArrowDown" && velocityY !== -1) {
+  }else if (e.key === "ArrowDown" && velocityY !== -1) {
     velocityX = 0;
     velocityY = 1;
   }
